@@ -3,55 +3,36 @@
 #include <string.h>
 #include "token.c"
 
-void testCase(TOKEN returnToken, char* expectedType, char* expectedText);
+void tester(char* testCase, char* expectedType, char* expectedText);
 
 int main(int argc, char *argv[])
 {
+    char* testWord = "hello";
+    tester(testWord,"Word","hello");
 
+    char* testNum = "1";
+    tester(testNum,"Number","1");
 
-    char testCaseNum[] = "1";
-    char *token = generateSpaceless(testCaseNum);
-    while(token != NULL) 
-    {
-        TOKEN returnToken = parseTokens(token);
-        testCase(returnToken,"Number","1");
-        token = strtok(NULL," ");
-    }
+    char* testOp = "+";
+    tester(testOp,"Arithmetic Operator","+");
 
-    char testCaseWord[] = "num";
-    token = generateSpaceless(testCaseWord);
-    while(token != NULL) 
-    {
-        TOKEN returnToken = parseTokens(token);
-        testCase(returnToken,"Word","num");
-        token = strtok(NULL," ");
-    }
-
-    char testCaseArithOp[] = "+";
-    token = generateSpaceless(testCaseArithOp);
-    while(token != NULL) 
-    {
-        TOKEN returnToken = parseTokens(token);
-        testCase(returnToken,"Arithmetic Operator","+");
-        token = strtok(NULL," ");
-    }
-
-    char testCaseSymbol[] = ":";
-    token = generateSpaceless(testCaseSymbol);
-    while(token != NULL) 
-    {
-        TOKEN returnToken = parseTokens(token);
-        testCase(returnToken,"Symbol",":");
-        token = strtok(NULL," ");
-    }
-
-
+    char* testSym = ";";
+    tester(testSym,"Symbol",";");
+   
     return EXIT_SUCCESS;
 }
 
 
 
-void testCase(TOKEN returnToken, char* expectedType, char* expectedText)
+void tester(char* testCase, char* expectedType, char* expectedText)
 {
-    printf((resolveToString(returnToken.type_t)==expectedType && *returnToken.text==*expectedText) ? "Passed the test\n" : "Failed the test\n");
+    char *token = generateSpaceless(testCase);
+
+    while(token != NULL) 
+    {   
+        TOKEN returnToken = parseTokens(token);
+        printf((resolveToString(returnToken.type_t)==expectedType && returnToken.text==expectedText) ? "Passed the test ☑\n" : "Failed the test ☒\n");
+        token = strtok(NULL," ");
+    }
+    
 }
