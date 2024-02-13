@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     tester(testWord,"Word","hello");
 
     char* testNum = "1";
-    tester(testNum,"Number","1");
+    tester(testNum,"Number","1 2");
 
     char* testOp = "+";
     tester(testOp,"Arithmetic Operator","+");
