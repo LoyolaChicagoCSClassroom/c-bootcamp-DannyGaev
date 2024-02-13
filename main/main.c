@@ -5,11 +5,8 @@
 
 int main(int argc, char *argv[])
 {
-    
     char *token;
-
     char *input = argv[1];
-
     token = strtok(input," ");
     
     while(token != NULL) 
