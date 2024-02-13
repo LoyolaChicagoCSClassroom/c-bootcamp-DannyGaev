@@ -3,27 +3,55 @@
 #include <string.h>
 #include "token.c"
 
-int testCase(TOKEN returnToken, char* expectedType, char* expectedText);
+void testCase(TOKEN returnToken, char* expectedType, char* expectedText);
 
 int main(int argc, char *argv[])
 {
+
+
     char testCaseNum[] = "1";
     char *token = generateSpaceless(testCaseNum);
-
     while(token != NULL) 
     {
         TOKEN returnToken = parseTokens(token);
-        printf(testCase(returnToken,"Number","1")!=0 ? "Passed the test\n" : "Failed the test\n");
+        testCase(returnToken,"Number","1");
         token = strtok(NULL," ");
     }
+
+    char testCaseWord[] = "num";
+    token = generateSpaceless(testCaseWord);
+    while(token != NULL) 
+    {
+        TOKEN returnToken = parseTokens(token);
+        testCase(returnToken,"Word","num");
+        token = strtok(NULL," ");
+    }
+
+    char testCaseArithOp[] = "+";
+    token = generateSpaceless(testCaseArithOp);
+    while(token != NULL) 
+    {
+        TOKEN returnToken = parseTokens(token);
+        testCase(returnToken,"Arithmetic Operator","+");
+        token = strtok(NULL," ");
+    }
+
+    char testCaseSymbol[] = ":";
+    token = generateSpaceless(testCaseSymbol);
+    while(token != NULL) 
+    {
+        TOKEN returnToken = parseTokens(token);
+        testCase(returnToken,"Symbol",":");
+        token = strtok(NULL," ");
+    }
+
+
     return EXIT_SUCCESS;
 }
 
 
 
-int testCase(TOKEN returnToken, char* expectedType, char* expectedText)
+void testCase(TOKEN returnToken, char* expectedType, char* expectedText)
 {
-
-    return((resolveToString(returnToken.type_t)==expectedType && *returnToken.text==*expectedText) ? 1 : 0);
-
+    printf((resolveToString(returnToken.type_t)==expectedType && *returnToken.text==*expectedText) ? "Passed the test\n" : "Failed the test\n");
 }
