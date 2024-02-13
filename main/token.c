@@ -1,6 +1,13 @@
 #include <ctype.h>
 #include "token.h"
 
+char *generateSpaceless(char *input)
+{
+    char *token;
+    token = strtok(input," ");
+    return token;
+}
+
 TOKEN parseTokens(char *token)
 {
     TOKEN returnToken;
