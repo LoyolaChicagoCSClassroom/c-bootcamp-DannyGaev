@@ -15,6 +15,8 @@ typedef struct token_t {
     char *text;
 } TOKEN;
 
-extern TOKEN parseTokens(char *token);
+TOKEN parseTokens(char *token);
+
+char *resolveToString(enum token_type_t type_t);
 
 #endif
