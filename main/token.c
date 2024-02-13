@@ -33,6 +33,6 @@ char *resolveToString(enum token_type_t type_t)
     
     else if(type_t==SYMB) return "Symbol";
     
-    else if(type_t==ARITH_OP) return "Arithmetic Operation";
+    else if(type_t==ARITH_OP) return "Arithmetic Operator";
 }
 
