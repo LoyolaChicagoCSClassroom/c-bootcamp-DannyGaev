@@ -1,4 +1,5 @@
 #include <ctype.h>
+#include <string.h>
 #include "token.h"
 
 char *generateSpaceless(char *input)
@@ -34,5 +35,7 @@ char *resolveToString(enum token_type_t type_t)
     else if(type_t==SYMB) return "Symbol";
     
     else if(type_t==ARITH_OP) return "Arithmetic Operator";
+
+    return "NULL";
 }
 
