@@ -125,8 +125,8 @@ int int_stack_2swap(int_stack_t *stk)
 
     int_stack_push(stk, next_first_pair);
     int_stack_push(stk, top_first_pair);
-    int_stack_push(stk, top_second_pair);
-    return int_stack_push(stk, next_second_pair);
+    int_stack_push(stk, next_second_pair);
+    return int_stack_push(stk, top_second_pair);
 }
 
 int int_stack_2dup(int_stack_t *stk)
