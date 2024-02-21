@@ -65,6 +65,105 @@ TEST(IntStackTests, PushToCapcacityPopUntilUnderflow
     ASSERT_FALSE(result);
 }
 
+TEST(IntStackTests, OverOperation)
+{
+    int_stack_t stack;
+    int_stack_init(&stack, 3);
+    int_stack_push(&stack, 10);
+    int_stack_push(&stack, 20);
+    ASSERT_TRUE(int_stack_over(&stack));
+    int top_value;
+    int_stack_pop(&stack, &top_value);
+    ASSERT_EQ(top_value, 10); 
+}
+
+TEST(IntStackTests, RotOperation)
+{
+    int_stack_t stack;
+    int_stack_init(&stack, 3);
+    int_stack_push(&stack, 10);
+    int_stack_push(&stack, 20);
+    int_stack_push(&stack, 30);
+    ASSERT_TRUE(int_stack_rot(&stack));
+    int top_value;
+    int_stack_pop(&stack, &top_value);
+    ASSERT_EQ(top_value, 10);
+}
+
+TEST(IntStackTests, DropOperation)
+{
+    int_stack_t stack;
+    int_stack_init(&stack, 2);
+    int_stack_push(&stack, 10);
+    int_stack_push(&stack, 20);
+    ASSERT_TRUE(int_stack_drop(&stack));
+    int top_value;
+    int_stack_pop(&stack, &top_value);
+    ASSERT_EQ(top_value, 10);
+}
+
+TEST(IntStackTests, TwoSwapOperation)
+{
+    int_stack_t stack;
+    int_stack_init(&stack, 4);
+    int_stack_push(&stack, 10);
+    int_stack_push(&stack, 20);
+    int_stack_push(&stack, 30);
+    int_stack_push(&stack, 40);
+    ASSERT_TRUE(int_stack_2swap(&stack));
+    int top_value;
+    int_stack_pop(&stack, &top_value);
+    ASSERT_EQ(top_value, 20);
+    int_stack_pop(&stack, &top_value);
+    ASSERT_EQ(top_value, 10);
+}
+
+TEST(IntStackTests, TwoDupOperation)
+{
+    int_stack_t stack;
+    int_stack_init(&stack, 4);
+    int_stack_push(&stack, 10);
+    int_stack_push(&stack, 20);
+    ASSERT_TRUE(int_stack_2dup(&stack));
+    int top_value;
+    int_stack_pop(&stack, &top_value);
+    ASSERT_EQ(top_value, 20);
+    int_stack_pop(&stack, &top_value);
+    ASSERT_EQ(top_value, 10);
+}
+TEST(IntStackTests, TwoOverOperation)
+{
+    int_stack_t stack;
+    int_stack_init(&stack, 6);
+    int_stack_push(&stack, 10);
+    int_stack_push(&stack, 20);
+    int_stack_push(&stack, 30);
+    int_stack_push(&stack, 40);
+    ASSERT_TRUE(int_stack_2over(&stack));
+    int top_value;
+    int_stack_pop(&stack, &top_value);
+    ASSERT_EQ(top_value, 20);
+    int_stack_pop(&stack, &top_value);
+    ASSERT_EQ(top_value, 10);
+}
+
+TEST(IntStackTests, TwoDropOperation)
+{
+    int_stack_t stack;
+    int_stack_init(&stack, 4);
+    int_stack_push(&stack, 10);
+    int_stack_push(&stack, 20);
+    int_stack_push(&stack, 30);
+    int_stack_push(&stack, 40);
+    ASSERT_TRUE(int_stack_2drop(&stack));
+    ASSERT_EQ(int_stack_size(&stack), 2);
+    int top_value;
+    int_stack_pop(&stack, &top_value);
+    ASSERT_EQ(top_value, 20);
+    int_stack_pop(&stack, &top_value);
+    ASSERT_EQ(top_value, 10);
+}
+
 int main(int argc, char **argv)
 {
     testing::InitGoogleTest(&argc, argv);
