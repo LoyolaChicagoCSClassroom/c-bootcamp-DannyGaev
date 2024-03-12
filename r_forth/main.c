@@ -7,20 +7,25 @@
 int main(int argc, char *argv[])
 {
     char *token = generateSpaceless(argv[1]);
+    const int capacity = 3;
     int_stack_t myStack;
-    const int capacity = 5;
+        
+    printf("%d\n",capacity);
 
-    // Initialize the stack with a capacity of 5.
     int_stack_init(&myStack, capacity);
 
-    // Push values onto the stack.
-    for (int i = 0; i < capacity; i++)
+    while (token != NULL)
     {
-        int success = int_stack_push(&myStack, i);
+        TOKEN returnToken = parseTokens(token);
+        
+        printf("CLASS: %s, TEXT: %s\n", resolveToString(returnToken.type_t), returnToken.text);
+        int value = *returnToken.text - '0';
+        int success = int_stack_push(&myStack, value);
         if (!success)
         {
-            fprintf(stderr, "Stack overflow: %d\n", i);
+            fprintf(stderr, "Stack overflow: %d\n", value);
         }
+        token = strtok(NULL, " ");
     }
 
     // Print the stack (top to bottom)
@@ -37,28 +42,20 @@ int main(int argc, char *argv[])
         }
     }
 
-    // Print the stack (top to bottom)
     int_stack_print(&myStack, stdout);
 
-    // Quick tests for swap, dup, and add.
-
-    int_stack_push(&myStack, 7);
-    int_stack_push(&myStack, 8);
+    int_stack_push(&myStack, 1);
+    int_stack_push(&myStack, 2);
+    int_stack_push(&myStack, 3);
     int_stack_print(&myStack, stdout);
     int_stack_swap(&myStack);
     int_stack_print(&myStack, stdout);
     int_stack_add(&myStack);
-    int_stack_print(&myStack, stdout); // hopefully, 15 only item on stack!
+    int_stack_print(&myStack, stdout); 
     int_stack_dup(&myStack);
-    int_stack_print(&myStack, stdout); // hopefully, 15 only item on stack!
+    int_stack_print(&myStack, stdout); 
     int_stack_add(&myStack);
-    int_stack_print(&myStack, stdout); // hopefully, 30 only item on stack!
-
-    while (token != NULL)
-    {
-        TOKEN returnToken = parseTokens(token);
-        printf("CLASS: %s, TEXT: %s\n", resolveToString(returnToken.type_t), returnToken.text);
-        token = strtok(NULL, " ");
-    }
+    int_stack_print(&myStack, stdout); 
+    
     return EXIT_SUCCESS;
 }
