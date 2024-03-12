@@ -1,0 +1,264 @@
+Start testing: Feb 21 00:22 CST
+----------------------------------------------------------
+1/10 Testing: IntStackTests.Initialization
+1/10 Test: IntStackTests.Initialization
+Command: "/Users/oaktree/Documents/GitHub/c-bootcamp-DannyGaev/std-queue/build/int_stack_tests" "--gtest_filter=IntStackTests.Initialization" "--gtest_also_run_disabled_tests"
+Directory: /Users/oaktree/Documents/GitHub/c-bootcamp-DannyGaev/std-queue/build
+"IntStackTests.Initialization" start time: Feb 21 00:22 CST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = IntStackTests.Initialization
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from IntStackTests
+[ RUN      ] IntStackTests.Initialization
+[       OK ] IntStackTests.Initialization (0 ms)
+[----------] 1 test from IntStackTests (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"IntStackTests.Initialization" end time: Feb 21 00:22 CST
+"IntStackTests.Initialization" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/10 Testing: IntStackTests.PushToCapacityAndOverflow
+2/10 Test: IntStackTests.PushToCapacityAndOverflow
+Command: "/Users/oaktree/Documents/GitHub/c-bootcamp-DannyGaev/std-queue/build/int_stack_tests" "--gtest_filter=IntStackTests.PushToCapacityAndOverflow" "--gtest_also_run_disabled_tests"
+Directory: /Users/oaktree/Documents/GitHub/c-bootcamp-DannyGaev/std-queue/build
+"IntStackTests.PushToCapacityAndOverflow" start time: Feb 21 00:22 CST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = IntStackTests.PushToCapacityAndOverflow
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from IntStackTests
+[ RUN      ] IntStackTests.PushToCapacityAndOverflow
+Stack is at full capacity.
+[       OK ] IntStackTests.PushToCapacityAndOverflow (0 ms)
+[----------] 1 test from IntStackTests (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"IntStackTests.PushToCapacityAndOverflow" end time: Feb 21 00:22 CST
+"IntStackTests.PushToCapacityAndOverflow" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/10 Testing: IntStackTests.PushToCapcacityPopUntilUnderflow
+3/10 Test: IntStackTests.PushToCapcacityPopUntilUnderflow
+Command: "/Users/oaktree/Documents/GitHub/c-bootcamp-DannyGaev/std-queue/build/int_stack_tests" "--gtest_filter=IntStackTests.PushToCapcacityPopUntilUnderflow" "--gtest_also_run_disabled_tests"
+Directory: /Users/oaktree/Documents/GitHub/c-bootcamp-DannyGaev/std-queue/build
+"IntStackTests.PushToCapcacityPopUntilUnderflow" start time: Feb 21 00:22 CST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = IntStackTests.PushToCapcacityPopUntilUnderflow
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from IntStackTests
+[ RUN      ] IntStackTests.PushToCapcacityPopUntilUnderflow
+[       OK ] IntStackTests.PushToCapcacityPopUntilUnderflow (0 ms)
+[----------] 1 test from IntStackTests (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"IntStackTests.PushToCapcacityPopUntilUnderflow" end time: Feb 21 00:22 CST
+"IntStackTests.PushToCapcacityPopUntilUnderflow" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/10 Testing: IntStackTests.OverOperation
+4/10 Test: IntStackTests.OverOperation
+Command: "/Users/oaktree/Documents/GitHub/c-bootcamp-DannyGaev/std-queue/build/int_stack_tests" "--gtest_filter=IntStackTests.OverOperation" "--gtest_also_run_disabled_tests"
+Directory: /Users/oaktree/Documents/GitHub/c-bootcamp-DannyGaev/std-queue/build
+"IntStackTests.OverOperation" start time: Feb 21 00:22 CST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = IntStackTests.OverOperation
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from IntStackTests
+[ RUN      ] IntStackTests.OverOperation
+[       OK ] IntStackTests.OverOperation (0 ms)
+[----------] 1 test from IntStackTests (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"IntStackTests.OverOperation" end time: Feb 21 00:22 CST
+"IntStackTests.OverOperation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/10 Testing: IntStackTests.RotOperation
+5/10 Test: IntStackTests.RotOperation
+Command: "/Users/oaktree/Documents/GitHub/c-bootcamp-DannyGaev/std-queue/build/int_stack_tests" "--gtest_filter=IntStackTests.RotOperation" "--gtest_also_run_disabled_tests"
+Directory: /Users/oaktree/Documents/GitHub/c-bootcamp-DannyGaev/std-queue/build
+"IntStackTests.RotOperation" start time: Feb 21 00:22 CST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = IntStackTests.RotOperation
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from IntStackTests
+[ RUN      ] IntStackTests.RotOperation
+[       OK ] IntStackTests.RotOperation (0 ms)
+[----------] 1 test from IntStackTests (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"IntStackTests.RotOperation" end time: Feb 21 00:22 CST
+"IntStackTests.RotOperation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/10 Testing: IntStackTests.DropOperation
+6/10 Test: IntStackTests.DropOperation
+Command: "/Users/oaktree/Documents/GitHub/c-bootcamp-DannyGaev/std-queue/build/int_stack_tests" "--gtest_filter=IntStackTests.DropOperation" "--gtest_also_run_disabled_tests"
+Directory: /Users/oaktree/Documents/GitHub/c-bootcamp-DannyGaev/std-queue/build
+"IntStackTests.DropOperation" start time: Feb 21 00:22 CST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = IntStackTests.DropOperation
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from IntStackTests
+[ RUN      ] IntStackTests.DropOperation
+[       OK ] IntStackTests.DropOperation (0 ms)
+[----------] 1 test from IntStackTests (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"IntStackTests.DropOperation" end time: Feb 21 00:22 CST
+"IntStackTests.DropOperation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/10 Testing: IntStackTests.TwoSwapOperation
+7/10 Test: IntStackTests.TwoSwapOperation
+Command: "/Users/oaktree/Documents/GitHub/c-bootcamp-DannyGaev/std-queue/build/int_stack_tests" "--gtest_filter=IntStackTests.TwoSwapOperation" "--gtest_also_run_disabled_tests"
+Directory: /Users/oaktree/Documents/GitHub/c-bootcamp-DannyGaev/std-queue/build
+"IntStackTests.TwoSwapOperation" start time: Feb 21 00:22 CST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = IntStackTests.TwoSwapOperation
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from IntStackTests
+[ RUN      ] IntStackTests.TwoSwapOperation
+[       OK ] IntStackTests.TwoSwapOperation (0 ms)
+[----------] 1 test from IntStackTests (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"IntStackTests.TwoSwapOperation" end time: Feb 21 00:22 CST
+"IntStackTests.TwoSwapOperation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/10 Testing: IntStackTests.TwoDupOperation
+8/10 Test: IntStackTests.TwoDupOperation
+Command: "/Users/oaktree/Documents/GitHub/c-bootcamp-DannyGaev/std-queue/build/int_stack_tests" "--gtest_filter=IntStackTests.TwoDupOperation" "--gtest_also_run_disabled_tests"
+Directory: /Users/oaktree/Documents/GitHub/c-bootcamp-DannyGaev/std-queue/build
+"IntStackTests.TwoDupOperation" start time: Feb 21 00:22 CST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = IntStackTests.TwoDupOperation
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from IntStackTests
+[ RUN      ] IntStackTests.TwoDupOperation
+[       OK ] IntStackTests.TwoDupOperation (0 ms)
+[----------] 1 test from IntStackTests (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"IntStackTests.TwoDupOperation" end time: Feb 21 00:22 CST
+"IntStackTests.TwoDupOperation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/10 Testing: IntStackTests.TwoOverOperation
+9/10 Test: IntStackTests.TwoOverOperation
+Command: "/Users/oaktree/Documents/GitHub/c-bootcamp-DannyGaev/std-queue/build/int_stack_tests" "--gtest_filter=IntStackTests.TwoOverOperation" "--gtest_also_run_disabled_tests"
+Directory: /Users/oaktree/Documents/GitHub/c-bootcamp-DannyGaev/std-queue/build
+"IntStackTests.TwoOverOperation" start time: Feb 21 00:22 CST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = IntStackTests.TwoOverOperation
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from IntStackTests
+[ RUN      ] IntStackTests.TwoOverOperation
+[       OK ] IntStackTests.TwoOverOperation (0 ms)
+[----------] 1 test from IntStackTests (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"IntStackTests.TwoOverOperation" end time: Feb 21 00:22 CST
+"IntStackTests.TwoOverOperation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/10 Testing: IntStackTests.TwoDropOperation
+10/10 Test: IntStackTests.TwoDropOperation
+Command: "/Users/oaktree/Documents/GitHub/c-bootcamp-DannyGaev/std-queue/build/int_stack_tests" "--gtest_filter=IntStackTests.TwoDropOperation" "--gtest_also_run_disabled_tests"
+Directory: /Users/oaktree/Documents/GitHub/c-bootcamp-DannyGaev/std-queue/build
+"IntStackTests.TwoDropOperation" start time: Feb 21 00:22 CST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = IntStackTests.TwoDropOperation
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from IntStackTests
+[ RUN      ] IntStackTests.TwoDropOperation
+[       OK ] IntStackTests.TwoDropOperation (0 ms)
+[----------] 1 test from IntStackTests (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"IntStackTests.TwoDropOperation" end time: Feb 21 00:22 CST
+"IntStackTests.TwoDropOperation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Feb 21 00:22 CST

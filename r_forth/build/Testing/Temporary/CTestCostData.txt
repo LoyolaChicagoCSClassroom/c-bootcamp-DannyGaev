@@ -1,0 +1,11 @@
+IntStackTests.Initialization 1 0.00558175
+IntStackTests.PushToCapacityAndOverflow 1 0.00508058
+IntStackTests.PushToCapcacityPopUntilUnderflow 1 0.00352192
+IntStackTests.OverOperation 1 0.0040215
+IntStackTests.RotOperation 1 0.00362083
+IntStackTests.DropOperation 1 0.00415004
+IntStackTests.TwoSwapOperation 1 0.00342521
+IntStackTests.TwoDupOperation 1 0.00357642
+IntStackTests.TwoOverOperation 1 0.00298771
+IntStackTests.TwoDropOperation 1 0.00329842
+---
