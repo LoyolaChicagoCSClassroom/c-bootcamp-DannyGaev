@@ -23,4 +23,6 @@ char *resolveToString(enum token_type_t type_t);
 
 char *generateSpaceless(char *input);
 
+char *resolveArithOp(char *symbol);
+
 #endif
