@@ -183,7 +183,7 @@ int int_stack_add(int_stack_t *stk)
     int_stack_pop(stk, &top_value);
     int_stack_pop(stk, &next_to_top_value);
     return int_stack_push(stk, top_value + next_to_top_value);
-}
+} 
 
 int int_stack_equals(int_stack_t *stk)
 {
@@ -226,8 +226,6 @@ int int_stack_greater_than(int_stack_t *stk)
     }
     return int_stack_push(stk, 0);
 }
-
-
 
 void int_stack_print(int_stack_t *stk, FILE *file)
 {
