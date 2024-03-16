@@ -1,6 +1,5 @@
 #include <ctype.h>
 #include <string.h>
-#include <regex.h>
 #include "token.h"
 
 // Delete later |/
@@ -16,18 +15,11 @@ char *generateSpaceless(char *input)
 TOKEN parseTokens(char *token)
 {
     TOKEN returnToken;
-    regex_t regex;
 
-    char *arithOpPattern = "[+-*/]";
-    char *symbPattern = "[:;.><]";
-    
-
-    // if (*token == '+' || *token == '-' || *token == '*' || *token == '/')
-    if(regexec(&regex, token,0,NULL,0) == 0)
+    if (*token == '+' || *token == '-' || *token == '*' || *token == '/')
         returnToken.type_t = ARITH_OP;
 
-    // else if (*token == ':' || *token == ';' || *token == '.' || *token == '>' || *token == '<')
-    else if (regexec(&regex, token, 0, NULL, 0) == 0)
+    else if (*token == ':' || *token == ';' || *token == '.' || *token == '>' || *token == '<')
         returnToken.type_t = SYMB;
 
     else if (isdigit(*token) != 0)
@@ -35,7 +27,7 @@ TOKEN parseTokens(char *token)
 
     else
         returnToken.type_t = WORD;
-
+        
     returnToken.text = token;
 
     return returnToken;
