@@ -19,14 +19,6 @@ int_stack_t resolveArith(char *answer, int_stack_t myStack)
     case '/':
         printf("Deleting top two elements...\n");
         break;
-    case '<':
-        printf("Comparing if less than...\n");
-        int_stack_less_than(&myStack);
-        break;
-    case '>':
-        printf("Comparing if greater than...\n");
-        int_stack_greater_than(&myStack);
-        break;
     }
     return myStack;
 }
@@ -71,7 +63,14 @@ int_stack_t resolveSymbol(char *answer, int_stack_t myStack)
             printf("Popped off: %d\n",top_value);
             break;
         }
-            
+        case '<':
+            printf("Comparing if less than...\n");
+            int_stack_less_than(&myStack);
+            break;
+        case '>':
+            printf("Comparing if greater than...\n");
+            int_stack_greater_than(&myStack);
+            break;
     }
     return myStack;
 }
