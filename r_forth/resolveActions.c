@@ -19,6 +19,14 @@ int_stack_t resolveArith(char *answer, int_stack_t myStack)
     case '/':
         printf("Deleting top two elements...\n");
         break;
+    case '<':
+        printf("Comparing if less than...\n");
+        int_stack_less_than(&myStack);
+        break;
+    case '>':
+        printf("Comparing if greater than...\n");
+        int_stack_greater_than(&myStack);
+        break;
     }
     return myStack;
 }
@@ -54,26 +62,42 @@ int_stack_t resolveWord(char *answer, int_stack_t myStack, int textLength)
 
 int_stack_t resolveSymbol(char *answer, int_stack_t myStack)
 {
+    switch(*answer)
+    {
+        case '.':
+        {
+            int top_value;
+            int_stack_pop(&myStack,&top_value);
+            printf("Popped off: %d\n",top_value);
+            break;
+        }
+            
+    }
     return myStack;
 }
 
-char *resolveArithOp(char *symbol)
-{
-    if (*symbol == '+')
-    {
-        return "a";
-    }
-    else if (*symbol == '-')
-    {
-        return "s";
-    }
-    else if (*symbol == '*')
-    {
-        return "m";
-    }
-    else if (*symbol == '/')
-    {
-        return "delete";
-    }
-    return "NULL";
-}
+// char *resolveArithOp(char *symbol)
+// {
+//     switch(*symbol)
+//     {
+//         case '+':
+//             return "a";
+//             break;
+//         case '-':
+//             return "s";
+//             break;
+//         case '*':
+//             return "m";
+//             break;
+//         case '/':
+//             return "d";
+//             break;
+//         case '<':
+//             return "l";
+//             break;
+//         case '>':
+//             return "g";
+//             break;
+//     }
+//     return "NULL";
+// }
