@@ -71,32 +71,11 @@ int_stack_t resolveSymbol(char *answer, int_stack_t myStack)
             printf("Comparing if greater than...\n");
             int_stack_greater_than(&myStack);
             break;
+        case '=':
+            printf("Comparing if equal...\n");
+            int_stack_equals(&myStack);
+            break;
     }
+
     return myStack;
 }
-
-// char *resolveArithOp(char *symbol)
-// {
-//     switch(*symbol)
-//     {
-//         case '+':
-//             return "a";
-//             break;
-//         case '-':
-//             return "s";
-//             break;
-//         case '*':
-//             return "m";
-//             break;
-//         case '/':
-//             return "d";
-//             break;
-//         case '<':
-//             return "l";
-//             break;
-//         case '>':
-//             return "g";
-//             break;
-//     }
-//     return "NULL";
-// }
