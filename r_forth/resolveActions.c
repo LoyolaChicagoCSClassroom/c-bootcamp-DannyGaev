@@ -55,3 +55,28 @@ int_stack_t resolveWord(char *answer, int_stack_t myStack, int textLength)
     return myStack;
 }
 
+int_stack_t resolveSymbol(char *answer, int_stack_t myStack)
+{
+    return myStack;
+}
+
+char *resolveArithOp(char *symbol)
+{
+    if (*symbol == '+')
+    {
+        return "a";
+    }
+    else if (*symbol == '-')
+    {
+        return "s";
+    }
+    else if (*symbol == '*')
+    {
+        return "m";
+    }
+    else if (*symbol == '/')
+    {
+        return "delete";
+    }
+    return "NULL";
+}
