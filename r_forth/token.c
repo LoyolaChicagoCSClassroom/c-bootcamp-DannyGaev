@@ -19,7 +19,7 @@ TOKEN parseTokens(char *token)
     if (*token == '+' || *token == '-' || *token == '*' || *token == '/')
         returnToken.type_t = ARITH_OP;
 
-    else if (*token == ':' || *token == ';' || *token == '.' || *token == '>' || *token == '<')
+    else if (*token == ':' || *token == ';' || *token == '.' || *token == '>' || *token == '<' || *token == '=')
         returnToken.type_t = SYMB;
 
     else if (isdigit(*token) != 0)
