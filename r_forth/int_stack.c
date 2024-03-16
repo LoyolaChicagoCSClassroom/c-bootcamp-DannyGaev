@@ -177,7 +177,7 @@ int int_stack_2drop(int_stack_t *stk)
 
 int int_stack_add(int_stack_t *stk)
 {
-    if (stk->size < 2)
+    if (stk->size < 2) 
         return 0;
     int top_value, next_to_top_value;
     int_stack_pop(stk, &top_value);
