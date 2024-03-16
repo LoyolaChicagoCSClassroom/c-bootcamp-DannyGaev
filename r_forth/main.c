@@ -3,6 +3,7 @@
 #include <string.h>
 #include "token.h"
 #include "int_stack.h"
+#include "resolveActions.h"
 
 int main(int argc, char *argv[])
 {
@@ -18,7 +19,9 @@ int main(int argc, char *argv[])
 
         printf("CLASS: %s, TEXT: %s\n", resolveToString(returnToken.type_t), returnToken.text);
         const int textLength = strlen(returnToken.text);
-        if (returnToken.type_t == NUM)
+        switch (returnToken.type_t)
+        {
+        case NUM:
         {
             int value = *returnToken.text - '0';
             int success = int_stack_push(&myStack, value);
@@ -26,53 +29,17 @@ int main(int argc, char *argv[])
             {
                 fprintf(stderr, "Stack overflow: %d\n", value);
             }
+            break;
         }
-        else if (returnToken.type_t == ARITH_OP)
-        {
-            char *answer = returnToken.text;
-            switch (*answer)
-            {
-            case '+':
-                printf("Adding top two elements...\n");
-                int_stack_add(&myStack);
-                break;
-            case '-':
-                printf("Subtracting top two elements...\n");
-                break;
-            case '*':
-                printf("Multiplying top two elements...\n");
-                break;
-            case '/':
-                printf("Deleting top two elements...\n");
-                break;
-            }
-        }
-        else if (returnToken.type_t == WORD)
-        {
-            char text[textLength];
-            strncpy(text, returnToken.text, textLength);
-            if (strcmp(text, "rot") == 0)
-            {
-                printf("Rotating\n");
-                int_stack_rot(&myStack);
-            }
-            else if (strcmp(text, "dup") == 0)
-            {
-                printf("Duplicating\n");
-                int_stack_dup(&myStack);
-            }
-            else if (strcmp(text, "swap") == 0)
-            {
-                int_stack_swap(&myStack);
-            }
-            else if (strcmp(text, "drop") == 0)
-            {
-                int_stack_drop(&myStack);
-            }
-            else if (strcmp(text, "over") == 0)
-            {
-                int_stack_over(&myStack);
-            }
+        case ARITH_OP:
+            myStack = resolveArith(returnToken.text, myStack);
+            break;
+        case WORD:
+            myStack = resolveWord(returnToken.text, myStack, textLength);
+            break;
+        case SYMB:
+            myStack = resolveSymbol(returnToken.text, myStack);
+            break;
         }
         token = strtok(NULL, " ");
     }
