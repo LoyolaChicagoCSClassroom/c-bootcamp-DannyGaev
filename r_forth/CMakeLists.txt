@@ -8,4 +8,6 @@ add_executable (
         int_stack.c
         token
         token.c
+        resolveActions
+        resolveActions.c
 )
