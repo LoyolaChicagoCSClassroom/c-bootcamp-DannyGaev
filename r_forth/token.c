@@ -38,7 +38,7 @@ char *resolveToString(enum token_type_t type_t)
     if (type_t == WORD)
         return "Word";
 
-    else if (type_t == NUM)
+    else if (type_t == NUM) 
         return "Number";
 
     else if (type_t == SYMB)
@@ -50,23 +50,3 @@ char *resolveToString(enum token_type_t type_t)
     return "NULL";
 }
 
-char* resolveArithOp(char *symbol)
-{
-    if (*symbol == '+')
-    {
-        return "a";
-    }
-    else if (*symbol == '-')
-    {
-        return "s";
-    }
-    else if (*symbol == '*')
-    {
-        return "m";
-    }
-    else if (*symbol == '/')
-    {
-        return "delete";
-    }
-    return "NULL";
-}
