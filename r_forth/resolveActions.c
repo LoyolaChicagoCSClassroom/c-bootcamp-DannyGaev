@@ -2,16 +2,13 @@
 #include "token.h"
 #include <string.h>
 
-
-int success = 0;
-
 int_stack_t resolveArith(char *answer, int_stack_t myStack)
 {
     switch (*answer)
     {
     case '+':
         printf("Adding top two elements...\n");
-        success = int_stack_add(&myStack);
+        int_stack_add(&myStack);
         break;
     case '-':
         printf("Subtracting top two elements...\n");
@@ -28,17 +25,17 @@ int_stack_t resolveArith(char *answer, int_stack_t myStack)
 
 int_stack_t resolveWord(char *answer, int_stack_t myStack, int textLength)
 {
-    char text[textLength];
+    char text[textLength+1];
     strncpy(text, answer, textLength);
+    text[textLength] = '\0';
+
     if (strcmp(text, "rot") == 0)
     {
-        printf("Rotating\n");
-        success = int_stack_rot(&myStack);
+        int_stack_rot(&myStack);
     }
     else if (strcmp(text, "dup") == 0)
     {
-        printf("Duplicating\n");
-        success =int_stack_dup(&myStack);
+        int_stack_dup(&myStack);
     }
     else if (strcmp(text, "swap") == 0)
     {
