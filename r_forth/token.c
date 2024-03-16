@@ -1,11 +1,12 @@
 #include <ctype.h>
 #include <string.h>
+#include <regex.h>
 #include "token.h"
 
-//Delete later |/
+// Delete later |/
 #include <stdio.h>
 
-    char *generateSpaceless(char *input)
+char *generateSpaceless(char *input)
 {
     char *token;
     token = strtok(input, " ");
@@ -15,11 +16,18 @@
 TOKEN parseTokens(char *token)
 {
     TOKEN returnToken;
+    regex_t regex;
 
-    if (*token == '+' || *token == '-' || *token == '*' || *token == '/')
+    char *arithOpPattern = "[+-*/]";
+    char *symbPattern = "[:;.><]";
+    
+
+    // if (*token == '+' || *token == '-' || *token == '*' || *token == '/')
+    if(regexec(&regex, token,0,NULL,0) == 0)
         returnToken.type_t = ARITH_OP;
 
-    else if (*token == ':' || *token == ';' || *token == '.' || *token=='>' || *token=='<')
+    // else if (*token == ':' || *token == ';' || *token == '.' || *token == '>' || *token == '<')
+    else if (regexec(&regex, token, 0, NULL, 0) == 0)
         returnToken.type_t = SYMB;
 
     else if (isdigit(*token) != 0)
@@ -38,7 +46,7 @@ char *resolveToString(enum token_type_t type_t)
     if (type_t == WORD)
         return "Word";
 
-    else if (type_t == NUM) 
+    else if (type_t == NUM)
         return "Number";
 
     else if (type_t == SYMB)
@@ -49,4 +57,3 @@ char *resolveToString(enum token_type_t type_t)
 
     return "NULL";
 }
-
