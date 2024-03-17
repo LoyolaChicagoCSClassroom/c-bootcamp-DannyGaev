@@ -46,10 +46,9 @@ int main(int argc, char *argv[])
         token = strtok(NULL, " ");
     }
 
-    // Print the stack (top to bottom)
     int_stack_print(&myIntStack, stdout);
 
-    // Pop values from the stack and print them.
+  
     for (int i = 0; i < capacity; i++)
     {
         int top_value;
@@ -59,21 +58,6 @@ int main(int argc, char *argv[])
             fprintf(stderr, "Stack empty\n");
         }
     }
-
-    // int_stack_print(&myStack, stdout);
-
-    // int_stack_push(&myStack, 1);
-    // int_stack_push(&myStack, 2);
-    // int_stack_push(&myStack, 3);
-    // int_stack_print(&myStack, stdout);
-    // int_stack_swap(&myStack);
-    // int_stack_print(&myStack, stdout);
-    // int_stack_add(&myStack);
-    // int_stack_print(&myStack, stdout);
-    // int_stack_dup(&myStack);
-    // int_stack_print(&myStack, stdout);
-    // int_stack_add(&myStack);
-    // int_stack_print(&myStack, stdout);
 
     return EXIT_SUCCESS;
 }
