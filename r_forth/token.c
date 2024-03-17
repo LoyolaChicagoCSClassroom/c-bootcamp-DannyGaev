@@ -14,6 +14,11 @@ char *generateSpaceless(char *input)
 
 TOKEN parseTokens(char *token)
 {
+    const int textLength = strlen(token);
+    char text[textLength + 1];
+    strncpy(text, token, textLength);
+    text[textLength] = '\0';
+
     TOKEN returnToken;
 
     if (*token == '+' || *token == '-' || *token == '*' || *token == '/')
@@ -21,9 +26,12 @@ TOKEN parseTokens(char *token)
 
     else if (*token == ':' || *token == ';' || *token == '.' || *token == '>' || *token == '<' || *token == '=')
         returnToken.type_t = SYMB;
-
+ 
     else if (isdigit(*token) != 0)
         returnToken.type_t = NUM;
+
+    else if (strcmp(text, "variable") == 0)
+        returnToken.type_t = VAR;
 
     else
         returnToken.type_t = WORD;
@@ -46,6 +54,9 @@ char *resolveToString(enum token_type_t type_t)
 
     else if (type_t == ARITH_OP)
         return "Arithmetic Operator";
+    
+    else if(type_t == VAR)
+        return "Variable";
 
     return "NULL";
 }
