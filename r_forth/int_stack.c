@@ -4,7 +4,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-
+ 
 void int_stack_init(int_stack_t *stk, int capacity)
 {
     SLIST_INIT(&stk->head);
