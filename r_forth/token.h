@@ -7,8 +7,9 @@ enum token_type_t
 {
     NUM,
     ARITH_OP,
-    SYMB,
-    WORD
+    SYMB, 
+    WORD,
+    VAR
 } type_t;
 
 typedef struct token_t
