@@ -54,7 +54,7 @@ int_stack_t resolveWord(char *answer, int_stack_t mis, int textLength)
 }
 
 general_stack_t resolveVariable(char *answer, general_stack_t mgs, int textLength)
-{
+{ 
     char text[textLength + 1];
     strncpy(text, answer, textLength);
     text[textLength] = '\0';
