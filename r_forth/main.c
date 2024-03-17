@@ -3,15 +3,17 @@
 #include <string.h>
 #include "token.h"
 #include "int_stack.h"
+#include "general_stack.h"
 #include "resolveActions.h"
 
 int main(int argc, char *argv[])
 {
     char *token = generateSpaceless(argv[1]);
     const int capacity = 4;
-    int_stack_t myStack;
+    int_stack_t myIntStack;
+    general_stack_t myGenStack;
 
-    int_stack_init(&myStack, capacity);
+    int_stack_init(&myIntStack, capacity);
 
     while (token != NULL)
     {
@@ -24,7 +26,7 @@ int main(int argc, char *argv[])
         case NUM:
         {
             int value = *returnToken.text - '0';
-            int success = int_stack_push(&myStack, value);
+            int success = int_stack_push(&myIntStack, value);
             if (!success)
             {
                 fprintf(stderr, "Stack overflow: %d\n", value);
@@ -32,26 +34,26 @@ int main(int argc, char *argv[])
             break;
         }
         case ARITH_OP:
-            myStack = resolveArith(returnToken.text, myStack);
+            myIntStack = resolveArith(returnToken.text, myIntStack);
             break;
         case WORD:
-            myStack = resolveWord(returnToken.text, myStack, textLength);
+            myIntStack = resolveWord(returnToken.text, myIntStack, textLength);
             break;
         case SYMB:
-            myStack = resolveSymbol(returnToken.text, myStack);
+            myIntStack = resolveSymbol(returnToken.text, myIntStack);
             break;
         }
         token = strtok(NULL, " ");
     }
 
     // Print the stack (top to bottom)
-    int_stack_print(&myStack, stdout);
+    int_stack_print(&myIntStack, stdout);
 
     // Pop values from the stack and print them.
     for (int i = 0; i < capacity; i++)
     {
         int top_value;
-        int success = int_stack_pop(&myStack, &top_value);
+        int success = int_stack_pop(&myIntStack, &top_value);
         if (!success)
         {
             fprintf(stderr, "Stack empty\n");
