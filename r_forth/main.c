@@ -42,6 +42,8 @@ int main(int argc, char *argv[])
         case SYMB:
             myIntStack = resolveSymbol(returnToken.text, myIntStack);
             break;
+        case VAR:
+            myGenStack = resolveVariable(returnToken.text, myGenStack, textLength);
         }
         token = strtok(NULL, " ");
     }
