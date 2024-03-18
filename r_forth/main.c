@@ -9,7 +9,7 @@
 int main(int argc, char *argv[])
 {
     char *token = generateSpaceless(argv[1]);
-    const int capacity = 4;
+    const int capacity = 500;
     int_stack_t myIntStack;
     general_stack_t myGenStack;
 
