@@ -8,17 +8,16 @@ int_stack_t resolveArith(char *answer, int_stack_t mis)
     switch (*answer)
     {
     case '+':
-        //printf("Adding top two elements...\n");
         int_stack_add(&mis);
         break;
-    case '-':
-        //printf("Subtracting top two elements...\n");
+    case '-':;
+        int_stack_subtract(&mis);
         break;
     case '*':
-        //printf("Multiplying top two elements...\n");
+        int_stack_multiply(&mis);
         break;
     case '/':
-        //printf("Deleting top two elements...\n");
+        int_stack_divide(&mis);
         break;
     }
     return mis;
