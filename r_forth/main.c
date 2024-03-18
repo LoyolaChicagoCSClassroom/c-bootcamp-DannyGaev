@@ -18,8 +18,6 @@ int main(int argc, char *argv[])
     while (token != NULL)
     {
         TOKEN returnToken = parseTokens(token);
-
-        printf("CLASS: %s, TEXT: %s\n", resolveToString(returnToken.type_t), returnToken.text);
         const int textLength = strlen(returnToken.text);
         switch (returnToken.type_t)
         {
@@ -49,17 +47,6 @@ int main(int argc, char *argv[])
     }
 
     int_stack_print(&myIntStack, stdout);
-
-  
-    for (int i = 0; i < capacity; i++)
-    {
-        int top_value;
-        int success = int_stack_pop(&myIntStack, &top_value);
-        if (!success)
-        {
-            fprintf(stderr, "Stack empty\n");
-        }
-    }
 
     return EXIT_SUCCESS;
 }
