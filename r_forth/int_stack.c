@@ -4,7 +4,8 @@
 
 #include <stdlib.h>
 #include <stdio.h>
- 
+#include <string.h>
+
 void int_stack_init(int_stack_t *stk, int capacity)
 {
     SLIST_INIT(&stk->head);
@@ -177,13 +178,43 @@ int int_stack_2drop(int_stack_t *stk)
 
 int int_stack_add(int_stack_t *stk)
 {
-    if (stk->size < 2) 
+    if (stk->size < 2)
         return 0;
     int top_value, next_to_top_value;
     int_stack_pop(stk, &top_value);
     int_stack_pop(stk, &next_to_top_value);
     return int_stack_push(stk, top_value + next_to_top_value);
-} 
+}
+
+int int_stack_subtract(int_stack_t *stk)
+{
+    if (stk->size < 2)
+        return 0;
+    int top_value, next_to_top_value;
+    int_stack_pop(stk, &top_value);
+    int_stack_pop(stk, &next_to_top_value);
+    return int_stack_push(stk, top_value - next_to_top_value);
+}
+
+int int_stack_multiply(int_stack_t *stk)
+{
+    if (stk->size < 2)
+        return 0;
+    int top_value, next_to_top_value;
+    int_stack_pop(stk, &top_value);
+    int_stack_pop(stk, &next_to_top_value);
+    return int_stack_push(stk, top_value * next_to_top_value);
+}
+
+int int_stack_divide(int_stack_t *stk)
+{
+    if (stk->size < 2)
+        return 0;
+    int top_value, next_to_top_value;
+    int_stack_pop(stk, &top_value);
+    int_stack_pop(stk, &next_to_top_value);
+    return int_stack_push(stk, top_value / next_to_top_value);
+}
 
 int int_stack_equals(int_stack_t *stk)
 {
@@ -206,9 +237,9 @@ int int_stack_less_than(int_stack_t *stk)
     int top_value, next_to_top_value;
     int_stack_pop(stk, &top_value);
     int_stack_pop(stk, &next_to_top_value);
-    if(top_value>next_to_top_value)
+    if (top_value > next_to_top_value)
     {
-        return int_stack_push(stk,- 1);
+        return int_stack_push(stk, -1);
     }
     return int_stack_push(stk, 0);
 }
@@ -231,16 +262,33 @@ void int_stack_print(int_stack_t *stk, FILE *file)
 {
     int_entry_t *entry;
     int pos = 0;
+    int length = stk->size;
     if (stk->size == 0)
     {
         fprintf(file, "empty stack\n");
     }
- 
+
+    char *elems = (char *)malloc(length * sizeof(char));
     SLIST_FOREACH(entry, &stk->head, entries)
     {
-        fprintf(file, "%d ", entry->value);
-        pos++;
+        char str[sizeof(entry->value)];
+        sprintf(str, "%d", entry->value);
+        strcat(elems, str);
     }
+
+    char *end = elems;
+    while (*end != '\0')
+    {
+        end++;
+    }
+    end--;
+
+    while (end >= elems)
+    {
+        fprintf(file, "%c ", *end); 
+        end--;
+    }
+
     printf("<- Top\n");
 }
 
