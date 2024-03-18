@@ -235,13 +235,13 @@ void int_stack_print(int_stack_t *stk, FILE *file)
     {
         fprintf(file, "empty stack\n");
     }
-
+ 
     SLIST_FOREACH(entry, &stk->head, entries)
     {
-        fprintf(file, "%d: %d\n", pos, entry->value);
+        fprintf(file, "%d ", entry->value);
         pos++;
     }
-    printf("\n");
+    printf("<- Top\n");
 }
 
 int int_stack_size(int_stack_t *stk)
