@@ -30,6 +30,7 @@ int int_stack_push(int_stack_t *stk, int value)
         return 1; // success
     }
     return 0; // fail
+    
 }
 
 int int_stack_pop(int_stack_t *stk, int *top_value)
@@ -99,7 +100,7 @@ int int_stack_over(int_stack_t *stk)
     int_stack_push(stk, top_value);
     return int_stack_push(stk, next_to_top_value);
 }
-
+ 
 int int_stack_rot(int_stack_t *stk)
 {
     if (stk->size < 3)
@@ -193,7 +194,7 @@ int int_stack_subtract(int_stack_t *stk)
     int top_value, next_to_top_value;
     int_stack_pop(stk, &top_value);
     int_stack_pop(stk, &next_to_top_value);
-    return int_stack_push(stk, top_value - next_to_top_value);
+    return int_stack_push(stk, next_to_top_value - top_value);
 }
 
 int int_stack_multiply(int_stack_t *stk)
@@ -203,7 +204,7 @@ int int_stack_multiply(int_stack_t *stk)
     int top_value, next_to_top_value;
     int_stack_pop(stk, &top_value);
     int_stack_pop(stk, &next_to_top_value);
-    return int_stack_push(stk, top_value * next_to_top_value);
+    return int_stack_push(stk, next_to_top_value * top_value);
 }
 
 int int_stack_divide(int_stack_t *stk)
@@ -213,7 +214,7 @@ int int_stack_divide(int_stack_t *stk)
     int top_value, next_to_top_value;
     int_stack_pop(stk, &top_value);
     int_stack_pop(stk, &next_to_top_value);
-    return int_stack_push(stk, top_value / next_to_top_value);
+    return int_stack_push(stk, next_to_top_value / top_value);
 }
 
 int int_stack_equals(int_stack_t *stk)
@@ -260,8 +261,8 @@ int int_stack_greater_than(int_stack_t *stk)
 
 void int_stack_print(int_stack_t *stk, FILE *file)
 {
+    fprintf(file, "\n\tSTACK\n\t|");
     int_entry_t *entry;
-    int pos = 0;
     int length = stk->size;
     if (stk->size == 0)
     {
@@ -269,27 +270,30 @@ void int_stack_print(int_stack_t *stk, FILE *file)
     }
 
     char *elems = (char *)malloc(length * sizeof(char));
+
     SLIST_FOREACH(entry, &stk->head, entries)
     {
         char str[sizeof(entry->value)];
-        sprintf(str, "%d", entry->value);
+        sprintf(str, "%d ", entry->value);
         strcat(elems, str);
     }
 
-    char *end = elems;
-    while (*end != '\0')
-    {
-        end++;
-    }
-    end--;
+    char* token = strtok(elems, " \t\n");
+    char* tokens[100];
 
-    while (end >= elems)
+    int count = 0;
+    while (token != NULL)
     {
-        fprintf(file, "%c ", *end); 
-        end--;
+        tokens[count++] = token;
+        token = strtok(NULL, " ");
     }
 
-    printf("<- Top\n");
+    for (int i = count - 1; i >= 0; i--)
+    {
+        fprintf(file, "%s ", tokens[i]);
+    }
+
+    fprintf(file, "<- Top|\n\n");
 }
 
 int int_stack_size(int_stack_t *stk)
