@@ -2,10 +2,7 @@
 #include <string.h>
 #include "token.h"
 
-// Delete later |/
-#include <stdio.h>
-
-char *generateSpaceless(char *input)
+char *generateSpaceless(char *input) 
 {
     char *token;
     token = strtok(input, " ");
@@ -54,7 +51,7 @@ char *resolveToString(enum token_type_t type_t)
 
     else if (type_t == ARITH_OP)
         return "Arithmetic Operator";
-    
+     
     else if(type_t == VAR)
         return "Variable";
 
