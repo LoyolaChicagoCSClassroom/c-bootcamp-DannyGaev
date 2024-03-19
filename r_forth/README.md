@@ -1,10 +1,11 @@
 - Currently Supported Functionalities:
     * Supports all basic FORTH operations
-    * Suppotrs conditions (boolean expressions)
+    * Supports conditions (boolean expressions)
+    * Supports the proper FORTH syntaax with human-readable output
 
 - In Progress:
-    * Add support for variables 
-    * Add support for constants.
+    * Adding support for variables 
+    * Adding support for constants.
 
 - TODO:
     * Add support for conditionals (e.g. if-else) and loops
