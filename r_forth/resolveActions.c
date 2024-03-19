@@ -2,93 +2,90 @@
 #include "general_stack.h"
 #include "token.h"
 #include <string.h>
+#include <stdlib.h>
 
-int_stack_t resolveArith(char *answer, int_stack_t mis)
+void resolveArith(char *answer, int_stack_t *mis)
 {
     switch (*answer)
-    {
+    { 
     case '+':
-        int_stack_add(&mis);
+        int_stack_add(mis);
         break;
     case '-':;
-        int_stack_subtract(&mis);
+        int_stack_subtract(mis);
         break;
     case '*':
-        int_stack_multiply(&mis);
+        int_stack_multiply(mis);
         break;
     case '/':
-        int_stack_divide(&mis);
+        int_stack_divide(mis);
         break;
     }
-    return mis;
 }
 
-int_stack_t resolveWord(char *answer, int_stack_t mis, int textLength)
+void resolveWord(char *answer, int_stack_t *mis, int textLength)
 {
+
     char text[textLength+1];
     strncpy(text, answer, textLength);
-    text[textLength] = '\0';
+    text[textLength-1] = '\0';
 
     if (strcmp(text, "rot") == 0)
     {
-        int_stack_rot(&mis);
+        int_stack_rot(mis);
     }
     else if (strcmp(text, "dup") == 0)
     {
-        int_stack_dup(&mis);
+        int_stack_dup(mis);
     }
     else if (strcmp(text, "swap") == 0)
     {
-        int_stack_swap(&mis);
+        int_stack_swap(mis);
     }
     else if (strcmp(text, "drop") == 0)
     {
-        int_stack_drop(&mis);
+        int_stack_drop(mis);
     }
     else if (strcmp(text, "over") == 0)
     {
-        int_stack_over(&mis);
+        int_stack_over(mis);
     }
-    return mis;
+    else if(strcmp(text, "exit") == 0)
+    {
+        exit(0);
+    }
 }
 
-general_stack_t resolveVariable(char *answer, general_stack_t mgs, int textLength)
+void resolveVariable(char *answer, general_stack_t *mgs, int textLength)
 { 
     char text[textLength + 1];
     strncpy(text, answer, textLength);
-    text[textLength] = '\0';
+    text[textLength-1] = '\0';
 
     if (strcmp(text, "variable") == 0)
     {
-        general_stack_declare_variable(&mgs);
+        general_stack_declare_variable(mgs);
     }
-    return mgs;
 }
 
-int_stack_t resolveSymbol(char *answer, int_stack_t mis)
+void resolveSymbol(char *answer, int_stack_t *mis)
 {
     switch(*answer)
     {
         case '.':
         {
             int top_value;
-            int_stack_pop(&mis, &top_value);
-            printf("Popped off: %d\n",top_value);
+            int_stack_pop(mis, &top_value);
             break;
         }
         case '<':
-            printf("Comparing if less than...\n");
-            int_stack_less_than(&mis);
+            int_stack_less_than(mis);
             break;
         case '>':
-            printf("Comparing if greater than...\n");
-            int_stack_greater_than(&mis);
+            int_stack_greater_than(mis);
             break;
         case '=':
-            printf("Comparing if equal...\n");
-            int_stack_equals(&mis);
+            int_stack_equals(mis);
             break;
     }
-
-    return mis;
 }
