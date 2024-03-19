@@ -8,45 +8,58 @@
 
 int main(int argc, char *argv[])
 {
-    char *token = generateSpaceless(argv[1]);
-    const int capacity = 500;
+    char *input;
+    char buffer[100];
+    const int capacity = 100;
+
     int_stack_t myIntStack;
     general_stack_t myGenStack;
+    printf("\nTYPE 'exit' TO EXIT THE PROGRAM\n");
 
     int_stack_init(&myIntStack, capacity);
+    printf(": ");
+    fgets(input, sizeof(buffer), stdin);
 
-    while (token != NULL)
+    char *token = generateSpaceless(input);
+    while(strcmp(token, "exit") != 0)  
     {
-        TOKEN returnToken = parseTokens(token);
-        const int textLength = strlen(returnToken.text);
-        switch (returnToken.type_t)
+        while (token != NULL)
         {
-        case NUM:
-        {
-            int value = *returnToken.text - '0';
-            int success = int_stack_push(&myIntStack, value);
-            if (!success)
+            TOKEN returnToken = parseTokens(token);
+            const int textLength = strlen(returnToken.text);
+            switch (returnToken.type_t)
+            { 
+            case NUM:
             {
-                fprintf(stderr, "Stack overflow: %d\n", value);
+                int value = atoi(returnToken.text);
+                int success = int_stack_push(&myIntStack, value);
+                if (!success)
+                {
+                    fprintf(stderr, "Stack overflow: %d\n", value);
+                }
+                break;
             }
-            break;
-        }
-        case ARITH_OP:
-            myIntStack = resolveArith(returnToken.text, myIntStack);
-            break;
-        case WORD:
-            myIntStack = resolveWord(returnToken.text, myIntStack, textLength);
-            break;
-        case SYMB:
-            myIntStack = resolveSymbol(returnToken.text, myIntStack);
-            break;
-        case VAR:
-            myGenStack = resolveVariable(returnToken.text, myGenStack, textLength);
-        }
-        token = strtok(NULL, " ");
-    }
 
-    int_stack_print(&myIntStack, stdout);
+            case ARITH_OP:
+                resolveArith(returnToken.text, &myIntStack);
+                break;
+            case WORD:
+                resolveWord(returnToken.text, &myIntStack, textLength);
+                break;
+            case SYMB:
+                resolveSymbol(returnToken.text, &myIntStack);
+                break;
+            case VAR:
+                resolveVariable(returnToken.text, &myGenStack, textLength);
+            }
+            token = strtok(NULL, " ");
+        }
+        int_stack_print(&myIntStack, stdout);
+        printf(": ");
+        fgets(input, sizeof(buffer), stdin);
+        token = generateSpaceless(input);
+        
+    }
 
     return EXIT_SUCCESS;
 }
