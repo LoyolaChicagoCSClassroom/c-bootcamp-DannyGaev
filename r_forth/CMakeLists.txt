@@ -6,6 +6,8 @@ add_executable (
         main.c
         int_stack
         int_stack.c
+        general_stack
+        general_stack.c
         token
         token.c
         resolveActions
